@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "python-template"
+version = "0.1.0"
+description = "{{ cookiecutter.project_description }}"
+authors = ["Jona Koenemann"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
