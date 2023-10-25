@@ -5,6 +5,6 @@ setup(
     packages=find_packages(),
     version='0.1.0',
     description='This repository contains a simple python project template.',
-    author='Jona Koenemann',
+    author='{{ cookiecutter.author }}',
     license='',
 )
