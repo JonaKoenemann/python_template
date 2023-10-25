@@ -1,6 +1,9 @@
 {
     "project_name": "default_name",
-    "description": "short description",
+    "project_slug": "",
+    "project_description": "short description",
+    "repo_url": "",
+    "version": "0.1.0",
     "author": "Jona Koenemann",
     "email": ""
     }
