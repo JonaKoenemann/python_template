@@ -1,0 +1,5 @@
+features:
+  - name: gui_structure
+    enabled: "{{ cookiecutter.include_gui_structure }}"
+    resources:
+      - r"{{cookiecutter.project_slug}}\models"

@@ -2,8 +2,9 @@
     "project_name": "example project",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "project_description": "short description",
-    "repo_url": "",
     "version": "0.1.0",
     "author": "Jona Koenemann",
-    "email": ""
+    "email": "",
+    "include_gui_structure": false,
+    "include_data_science_structure": false
     }
