@@ -27,4 +27,4 @@ This repository contains a python project template.
  To X it is recommended to specify some rules for the git commit messages. So here is an approach for handling commit messages:
 
 ## About
-Author: {{ cookiecutter.project_name }}
+Author: cat({{ cookiecutter.project_name }})

@@ -1,6 +1,6 @@
 features:
   - name: gui_structure
-    enabled: "{{ cookiecutter.include_gui_structure }}"
+    enabled: "{{ cookiecutter.include_gui_structure|lower }}"
     resources:
       - "models"
       - "src//features"
