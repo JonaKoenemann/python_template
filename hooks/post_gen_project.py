@@ -6,7 +6,7 @@ import shutil
 import yaml
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
-MANIFEST = os.path.join(PROJECT_DIRECTORY, "hooks\\manifest.yaml")
+MANIFEST = os.path.join(PROJECT_DIRECTORY, "manifest.yaml")
 
 def delete_resources_for_disabled_features():
     with open(MANIFEST) as manifest_file:
@@ -17,7 +17,7 @@ def delete_resources_for_disabled_features():
                 for resource in feature['resources']:
                     delete_resource(resource)
     print("cleanup complete, removing manifest...")
-    # delete_resource(MANIFEST)
+    delete_resource(MANIFEST)
 
 
 def delete_resource(resource_name):
