@@ -5,6 +5,8 @@ import os
 import shutil
 import yaml
 
+print(f"{'{{cookiecutter.project_slug}}'}")
+
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 MANIFEST = os.path.join(PROJECT_DIRECTORY, "manifest.yaml")
 
