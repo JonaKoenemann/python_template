@@ -16,7 +16,7 @@ def delete_resources_for_disabled_features():
         print(f"Manifest file content: {manifest}")
         for feature in manifest['features']:
             print(f"Feature: {feature}, enabled: {feature['enabled']}")
-            if not feature['enabled']:
+            if feature['enabled'] == 'false':
                 print(f"removing resources for disabled feature {feature['name']}")
                 for resource in feature['resources']:
                     delete_resource(resource)
