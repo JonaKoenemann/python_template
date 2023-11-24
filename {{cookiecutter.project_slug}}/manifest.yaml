@@ -3,6 +3,6 @@ features:
     enabled: "{{ cookiecutter.include_gui_structure|lower }}"
     resources:
       - "models"
-      - "src//features"
-      - "src//models"
-      - "src//visualizations"
+      - "src\features"
+      - "src\models"
+      - "src\visualization"
