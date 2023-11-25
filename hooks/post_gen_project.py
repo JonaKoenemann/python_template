@@ -5,17 +5,13 @@ import os
 import shutil
 import yaml
 
-print(f"{'{{cookiecutter.project_slug}}'}")
-
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 MANIFEST = os.path.join(PROJECT_DIRECTORY, "manifest.yaml")
 
 def delete_resources_for_disabled_features():
     with open(MANIFEST) as manifest_file:
         manifest = yaml.load(manifest_file, yaml.SafeLoader)
-        print(f"Manifest file content: {manifest}")
         for feature in manifest['features']:
-            print(f"Feature: {feature}, enabled: {feature['enabled']}")
             if feature['enabled'] == 'false':
                 print(f"removing resources for disabled feature {feature['name']}")
                 for resource in feature['resources']:
