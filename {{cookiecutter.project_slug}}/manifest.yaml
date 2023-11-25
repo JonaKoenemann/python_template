@@ -1,6 +1,6 @@
 features:
   - name: data_science_structure
-    enabled: "{{ cookiecutter.data_science_structure|lower }}"
+    enabled: "{{ cookiecutter.include_data_science_structure|lower }}"
     resources:
       - "models"
       - "src\\features"
