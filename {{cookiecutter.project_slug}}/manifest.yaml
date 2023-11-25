@@ -1,8 +1,14 @@
 features:
-  - name: gui_structure
-    enabled: "{{ cookiecutter.include_gui_structure|lower }}"
+  - name: data_science_structure
+    enabled: "{{ cookiecutter.data_science_structure|lower }}"
     resources:
       - "models"
       - "src\\features"
       - "src\\models"
       - "src\\visualization"
+  - name: gui_structure
+    enabled: "{{ cookiecutter.include_gui_structure|lower }}"
+    resources:
+      - "src\\pages"
+      - "src\\style"
+      - "src\\widgets"

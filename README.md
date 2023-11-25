@@ -1,4 +1,7 @@
-## python_project_template
+## python_project_template :mute:
+
+:star:
+:tent:
 
 This repository contains a python project template.
 
@@ -25,6 +28,4 @@ This repository contains a python project template.
 
 ## Commit conventions
  To X it is recommended to specify some rules for the git commit messages. So here is an approach for handling commit messages:
-
-## About
-Author: cat({{ cookiecutter.project_name }})
+ 
