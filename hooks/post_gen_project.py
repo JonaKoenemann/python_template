@@ -3,6 +3,8 @@
 
 import os
 import shutil
+import sys
+import subprocess
 import yaml
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -31,3 +33,12 @@ def delete_resource(resource_name):
 
 if __name__ == "__main__":
     delete_resources_for_disabled_features()
+    try:
+        subprocess.check_call([sys.executable, '-m', 'pip', '--version'])
+    except:
+        raise RuntimeError("Pip is not installed.")
+    try:
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'pre-commit'])
+        subprocess.check_call([sys.executable, '-m', 'pre-commit', 'install'])
+    except:
+        raise RuntimeError("Could not install pre-commit hooks.")
