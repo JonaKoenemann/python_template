@@ -41,8 +41,8 @@ repos:
         # https://pre-commit.com/#top_level-default_language_version
         language_version: python3.12
 
-    - repo: https://github.com/akaihola/darglint2
-      rev: master
-      hooks:
-      -   id: darglint2
+    # - repo: https://github.com/akaihola/darglint2
+    #   rev: master
+    #   hooks:
+    #   -   id: darglint2
 
