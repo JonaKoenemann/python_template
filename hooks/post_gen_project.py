@@ -39,6 +39,6 @@ if __name__ == "__main__":
         raise RuntimeError("Pip is not installed.")
     try:
         subprocess.run([sys.executable, '-m', 'pip', 'install', 'pre-commit'], check=True)
-        subprocess.run([sys.executable, 'pre-commit', 'install', '--install-hooks'], check=True)
+        subprocess.run(['pre-commit', 'install', '--install-hooks'], check=True)
     except:
         raise RuntimeError("Could not install pre-commit hooks.")
