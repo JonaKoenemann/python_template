@@ -43,6 +43,7 @@ def init_repo():
         raise RuntimeError("Could not init and push repo.")
     
 def setup_pre_commits():
+    print("Setting up pre-commits.")
     try:
         subprocess.check_call([sys.executable, '-m', 'pip', '--version']) # check if pip is installed
     except:
@@ -56,5 +57,6 @@ def setup_pre_commits():
 if __name__ == "__main__":
     delete_resources_for_disabled_features()
     init_repo()
-    setup_pre_commits()
+    if '{{ cookiecutter.use_pre_commits }}' == 'true':
+        setup_pre_commits()
     
