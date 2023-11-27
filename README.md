@@ -1,7 +1,4 @@
-## python_project_template :mute:
-
-:star:
-:tent:
+## python_project_template 
 
 This repository contains a python project template.
 

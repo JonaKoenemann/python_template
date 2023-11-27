@@ -36,6 +36,7 @@ def init_repo():
         subprocess.run(['git', 'init'], check=True)
         subprocess.run(['git', 'remote', 'add', 'origin', '{{ cookiecutter.repo_url }}'], check=True)
         subprocess.run(['git', 'add', '-A'], check=True)
+        subprocess.run(['git', 'commit', '-m', 'initial commit'], check=True)
         subprocess.run(['git', 'push', 'origin', '{{ cookiecutter.branch_name }}'], check=True)
     except:
         raise RuntimeError("Could not init and push repo.")
