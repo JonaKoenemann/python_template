@@ -31,15 +31,28 @@ def delete_resource(resource_name):
         print(f"removing directory: {resource}")
         shutil.rmtree(resource)
 
-if __name__ == "__main__":
-    delete_resources_for_disabled_features()
+def init_repo():
     try:
-        subprocess.check_call([sys.executable, '-m', 'pip', '--version'])
+        subprocess.run(['git', 'init'], check=True)
+        subprocess.run(['git', 'remote', 'add', 'origin', '{{ cookiecutter.repo_url }}'], check=True)
+        subprocess.run(['git', 'add', '-A'], check=True)
+        subprocess.run(['git', 'push', 'origin', '{{ cookiecutter.branch_name }}'], check=True)
+    except:
+        raise RuntimeError("Could not init and push repo.")
+    
+def setup_pre_commits():
+    try:
+        subprocess.check_call([sys.executable, '-m', 'pip', '--version']) # check if pip is installed
     except:
         raise RuntimeError("Pip is not installed.")
     try:
         subprocess.run([sys.executable, '-m', 'pip', 'install', 'pre-commit'], check=True)
-        subprocess.run(['git', 'init'], check=True)
         subprocess.run(['pre-commit', 'install', '--install-hooks'], check=True)
     except:
         raise RuntimeError("Could not install pre-commit hooks.")
+
+if __name__ == "__main__":
+    delete_resources_for_disabled_features()
+    init_repo()
+    setup_pre_commits()
+    

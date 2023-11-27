@@ -6,5 +6,7 @@
     "author": "Jona Koenemann",
     "email": "",
     "include_gui_structure": false,
-    "include_data_science_structure": false
+    "include_data_science_structure": false,
+    "repo_url": "",
+    "branch_name": "main"
     }
