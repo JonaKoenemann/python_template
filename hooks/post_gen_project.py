@@ -59,4 +59,6 @@ if __name__ == "__main__":
     init_repo()
     if '{{ cookiecutter.use_pre_commits }}' == 'true':
         setup_pre_commits()
-    
+    # create .env file
+    file = open('.env', 'w')
+    file.close()   
