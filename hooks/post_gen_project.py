@@ -34,10 +34,11 @@ def delete_resource(resource_name):
 def init_repo():
     try:
         subprocess.run(['git', 'init'], check=True)
-        subprocess.run(['git', 'remote', 'add', 'origin', '{{ cookiecutter.repo_url }}'], check=True)
         subprocess.run(['git', 'add', '-A'], check=True)
         subprocess.run(['git', 'commit', '-m', 'initial commit'], check=True)
-        subprocess.run(['git', 'push', 'origin', '{{ cookiecutter.branch_name }}'], check=True)
+        subprocess.run(['git', 'branch', '-M', '{{ cookiecutter.branch_name }}'], check=True)
+        subprocess.run(['git', 'remote', 'add', 'origin', '{{ cookiecutter.repo_url }}'], check=True)
+        subprocess.run(['git', 'push', '-u', 'origin', '{{ cookiecutter.branch_name }}'], check=True)
     except:
         raise RuntimeError("Could not init and push repo.")
     
