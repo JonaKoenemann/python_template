@@ -17,4 +17,4 @@ features:
   - name: sphinx_documentation
     enabled: "{{ cookiecutter.use_sphinx_documentation|lower }}"
     resources:
-      - "src\\docs"
+      - "docs"
