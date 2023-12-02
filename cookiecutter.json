@@ -8,6 +8,7 @@
     "include_gui_structure": false,
     "include_data_science_structure": false,
     "use_pre_commits": true,
+    "use_sphinx_documentation": true,
     "repo_url": "https://github.com/user/example_repo.git",
     "branch_name": "main"
     }
