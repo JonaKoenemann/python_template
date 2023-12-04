@@ -10,6 +10,7 @@ features:
   - name: gui_structure
     enabled: "{{ cookiecutter.include_gui_structure|lower }}"
     resources:
+      - "assets" 
       - "src\\pages"
       - "src\\style"
       - "src\\widgets"
