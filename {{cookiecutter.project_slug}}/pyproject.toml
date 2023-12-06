@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "python-template"
-version = "0.1.0"
+name = "{{ cookiecutter.project_name }}"
+version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_description }}"
 authors = "{{ cookiecutter.author }}"
 readme = "README.md"
