@@ -1,6 +1,8 @@
 ## Python template 
 
-This repository contains a cookiecutter python project template.  
+This repository contains a cookiecutter python project template which is based on the 
+ [cookiecutter Data Science template](https://drivendata.github.io/cookiecutter-data-science/).  
+
 You can either use a data science structure or a structure for a project with a gui. You can also combine the two.  
 In addition to a fixed folder structure, the template provides the following optional features:
 - Python packaging and dependency management with poetry
