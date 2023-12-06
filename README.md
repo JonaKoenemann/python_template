@@ -54,7 +54,7 @@ Each commit message consists of a short descriptive text of the change and two t
 
 The following tags are proposed:
 
-### Tag 1:
+#### Tag 1:
 
 - DAT   -> data related, e.g. database management
 - DOC   -> documentation related
@@ -66,7 +66,7 @@ The following tags are proposed:
 - ORG   -> organization related, e.g. project structure
 - UI    -> user interface related
 
-## Tag 2:
+### Tag 2:
 
 - BFX   -> bug fix
 - DEL   -> deletion
