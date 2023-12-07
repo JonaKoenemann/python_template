@@ -93,13 +93,13 @@ def update_readme():
     with open(os.path.join(PROJECT_DIRECTORY, "README.md"), "w") as file:
         for line in lines:
             if (
-                "{{ cookiecutter.use_pre_commits }}" == "False"
+                "{{ cookiecutter.use_pre_commits }}" == "false"
                 and "Configuration file for the pre-commits" in line
-                or "{{ cookiecutter.use_sphinx_documentation }}" == "False"
+                or "{{ cookiecutter.use_sphinx_documentation }}" == "false"
                 and "A default Sphinx project; see sphinx-doc.org for details" in line
-                or "{{ cookiecutter.include_gui_structure }}" == "False"
+                or "{{ cookiecutter.include_gui_structure }}" == "false"
                 and any(indicator in line for indicator in gui_indicators)
-                or "{{ cookiecutter.include_data_science_structure }}" == "False"
+                or "{{ cookiecutter.include_data_science_structure }}" == "false"
                 and any(indicator in line for indicator in data_science_indicators)
             ):
                 pass  # skip line
