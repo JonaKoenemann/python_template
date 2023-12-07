@@ -70,9 +70,45 @@ def setup_pre_commits():
         raise RuntimeError("Could not install pre-commit hooks.")
 
 
+def update_readme():
+    lines = []
+    gui_indicators = [
+        "Folder for storing assets like images",
+        "Contains your application views",
+        "Contains all style related code",
+        "Contains custom widgets",
+    ]
+    data_science_indicators = [
+        "Trained and serialized models, model predictions, or model summaries",
+        "Scripts to turn raw data into features for modeling",
+        "Scripts to train models and then use trained models to make",
+        "Scripts to create visualizations",
+    ]
+
+    # read file
+    with open(os.path.join(PROJECT_DIRECTORY, "README.md"), "r") as file:
+        lines = file.readlines()
+
+    # Write file
+    with open(os.path.join(PROJECT_DIRECTORY, "README.md"), "w") as file:
+        for line in lines:
+            if (
+                "{{ cookiecutter.use_pre_commits }}" == "False"
+                and "Configuration file for the pre-commits" in line
+                or "{{ cookiecutter.use_sphinx_documentation }}" == "False"
+                and "A default Sphinx project; see sphinx-doc.org for details" in line
+                or "{{ cookiecutter.include_gui_structure }}" == "False"
+                and any(indicator in line for indicator in gui_indicators)
+                or "{{ cookiecutter.include_data_science_structure }}" == "False"
+                and any(indicator in line for indicator in data_science_indicators)
+            ):
+                pass  # skip line
+            else:
+                file.write(line)
+
+
 if __name__ == "__main__":
-    use_pre_commits = "{{ cookiecutter.use_pre_commits }}"
-    print(use_pre_commits, type(use_pre_commits))
+    update_readme()
     delete_resources_for_disabled_features()
     init_repo()
     if "{{ cookiecutter.use_pre_commits }}" == "true":
