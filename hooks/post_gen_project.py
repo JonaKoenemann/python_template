@@ -11,7 +11,8 @@ PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 MANIFEST = os.path.join(PROJECT_DIRECTORY, "manifest.yaml")
 
 
-def delete_resources_for_disabled_features():
+def delete_resources_for_disabled_features() -> None:
+    """Deletes the ressources of the disabled features."""
     with open(MANIFEST) as manifest_file:
         manifest = yaml.load(manifest_file, yaml.SafeLoader)
         for feature in manifest["features"]:
@@ -23,7 +24,12 @@ def delete_resources_for_disabled_features():
     delete_resource(MANIFEST)
 
 
-def delete_resource(resource_name):
+def delete_resource(resource_name: str) -> None:
+    """Deletes teh given file or directory.
+
+    Args:
+        resource_name (str): file or directory to remove
+    """
     resource = os.path.join(PROJECT_DIRECTORY, resource_name)
     if os.path.isfile(resource):
         print(f"removing file: {resource}")
@@ -34,6 +40,11 @@ def delete_resource(resource_name):
 
 
 def init_repo():
+    """Initializes the GitHub repository.
+
+    Raises:
+        RuntimeError: If the initialization failed, a RuntimeError will be raised.
+    """
     try:
         subprocess.run(["git", "init"], check=True)
         subprocess.run(["git", "add", "-A"], check=True)
@@ -53,7 +64,14 @@ def init_repo():
         raise RuntimeError("Could not init and push repo.")
 
 
-def setup_pre_commits():
+def setup_pre_commits() -> None:
+    """Sets up the pre-commits.
+
+    Raises:
+        RuntimeError: If pip is not installed, a RuntimeError will be raised.
+        RuntimeError: If the installation of the pre-commit hooks fails, a RuntimeError
+                      will be raised.
+    """
     print("Setting up pre-commits.")
     try:
         subprocess.check_call(
@@ -71,6 +89,7 @@ def setup_pre_commits():
 
 
 def update_readme():
+    """Updates the README.md according to the selected features."""
     lines = []
     gui_indicators = [
         "Folder for storing assets like images",
@@ -108,7 +127,7 @@ def update_readme():
 
 
 if __name__ == "__main__":
-    update_readme()
+    # update_readme() # not working
     delete_resources_for_disabled_features()
     init_repo()
     if "{{ cookiecutter.use_pre_commits }}" == "true":
