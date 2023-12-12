@@ -9,6 +9,12 @@ In addition to a fixed folder structure, the template provides the following opt
 - pre-commit hooks
 - Sphinx documentation
 
+## Table of contents
+- [How to use the template](#how-to-use-the-template)
+- [Project organization](#project-organization)
+- [Commit conventions](#commit-conventions)
+- [Useful links](#useful-links)
+
 ## How to use the template
 
 To use the template, simply call the following command in your desired folder, e.g. GitHub:  
@@ -18,7 +24,7 @@ cookiecutter https://github.com/JonaKoenemann/python_template.git
 ```
 Then some questions are asked that are needed for the template. After the answer, a project is automatically created and an inital commit is created in the desired GitHub repository.
 
-## Project Organization
+## Project organization
 
 The project structure when using all features is as follows:
 
