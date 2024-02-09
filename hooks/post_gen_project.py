@@ -125,16 +125,17 @@ def update_readme():
             else:
                 file.write(line)
 
-    def create_venv() -> None:
-        """Creates a virtual environment
 
-        Raises:
-            RuntimeError: If no virtual environment can be created, a RuntimeError will be raised.
-        """
-        try:
-            subprocess.run(["python", "-m", "venv", "venv"], check=True)
-        except:
-            raise RuntimeError("Could not create virtual environment")
+def create_venv() -> None:
+    """Creates a virtual environment
+
+    Raises:
+        RuntimeError: If no virtual environment can be created, a RuntimeError will be raised.
+    """
+    try:
+        subprocess.run(["python", "-m", "venv", "venv"], check=True)
+    except:
+        raise RuntimeError("Could not create virtual environment")
 
 
 if __name__ == "__main__":
@@ -144,7 +145,7 @@ if __name__ == "__main__":
     if "{{ cookiecutter.use_pre_commits }}" == "true":
         setup_pre_commits()
     if "{{ cookiecutter.create_venv }}" == "true":
-        setup_pre_commits()
+        create_venv()
     # create .env file
     file = open(".env", "w")
     file.close()
