@@ -133,7 +133,9 @@ def create_venv() -> None:
         RuntimeError: If no virtual environment can be created, a RuntimeError will be raised.
     """
     try:
+        print("Start creating virtual environment.")
         subprocess.run(["python", "-m", "venv", "venv"], check=True)
+        print("Successfully created virtual environment.")
     except:
         raise RuntimeError("Could not create virtual environment")
 
