@@ -10,9 +10,13 @@ In addition to a fixed folder structure, the template provides the following opt
 - Sphinx documentation
 
 ## Table of contents
+- [Python template](#python-template)
+- [Table of contents](#table-of-contents)
 - [How to use the template](#how-to-use-the-template)
 - [Project organization](#project-organization)
 - [Commit conventions](#commit-conventions)
+    - [Tag 1:](#tag-1)
+  - [Tag 2:](#tag-2)
 - [Useful links](#useful-links)
 
 ## How to use the template
@@ -68,6 +72,7 @@ The following tags are proposed:
 - DOC   -> documentation related
 - DEP   -> dependency related
 - DPLY  -> deployment related
+- ENV   -> environment related
 - FEAT  -> feature related
 - MOD   -> model related
 - NBK   -> notebook related
