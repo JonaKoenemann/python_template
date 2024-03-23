@@ -114,11 +114,11 @@ def update_readme():
             if (
                 not "{{ cookiecutter.use_pre_commits }}"
                 and "Configuration file for the pre-commits" in line
-                or not "{{ cookiecutter.use_sphinx_documentation }}"
+                or not "{{ cookiecutter.use_sphinx_documentation }}" == "y"
                 and "A default Sphinx project; see sphinx-doc.org for details" in line
-                or not "{{ cookiecutter.include_gui_structure }}"
+                or not "{{ cookiecutter.include_gui_structure }}" == "y"
                 and any(indicator in line for indicator in gui_indicators)
-                or not "{{ cookiecutter.include_data_science_structure }}"
+                or not "{{ cookiecutter.include_data_science_structure }}" == "y"
                 and any(indicator in line for indicator in data_science_indicators)
             ):
                 pass  # skip line
@@ -146,7 +146,7 @@ if __name__ == "__main__":
     init_repo()
     if "{{ cookiecutter.create_venv }}" == "y":
         create_venv()
-    if "{{ cookiecutter.use_pre_commits }}":
+    if "{{ cookiecutter.use_pre_commits }}" == "y":
         setup_pre_commits()
     # create .env file
     file = open(".env", "w")
