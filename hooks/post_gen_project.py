@@ -112,7 +112,7 @@ def update_readme():
     with open(os.path.join(PROJECT_DIRECTORY, "README.md"), "w") as file:
         for line in lines:
             if (
-                not "{{ cookiecutter.use_pre_commits }}"
+                not "{{ cookiecutter.use_pre_commits }}" == "y"
                 and "Configuration file for the pre-commits" in line
                 or not "{{ cookiecutter.use_sphinx_documentation }}" == "y"
                 and "A default Sphinx project; see sphinx-doc.org for details" in line
