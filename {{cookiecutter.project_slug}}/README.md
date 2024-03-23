@@ -28,7 +28,7 @@ The project structure when using all features is as follows:
     │   ├── visualization  <- Scripts to create visualizations 
     |   └── widgets        <- Contains custom widgets 
     │
-    ├── .env                        <- Folder containing all needed files for teh virtual environment
+    ├── venv                        <- Folder containing all needed files for teh virtual environment
     ├── .env                        <- File for storing passwords
     ├── .gitignore                  <- Specifies intentionally untracked files to ignore
     ├── .pre-commit.config.yaml     <- Configuration file for the pre-commits
