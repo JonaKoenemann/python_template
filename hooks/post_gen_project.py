@@ -144,7 +144,7 @@ if __name__ == "__main__":
     update_readme()
     delete_resources_for_disabled_features()
     init_repo()
-    if "{{ cookiecutter.create_venv }}":
+    if "{{ cookiecutter.create_venv }}" == "y":
         create_venv()
     if "{{ cookiecutter.use_pre_commits }}":
         setup_pre_commits()
