@@ -144,13 +144,8 @@ if __name__ == "__main__":
     # update_readme() # TODO: not working
     delete_resources_for_disabled_features()
     init_repo()
-    {%- if cookiecutter.create_venv -%}
-    # In case of True add your content here
+    if "{{ cookiecutter.create_venv }}":
         create_venv()
-    {%- else -%}
-    # In case of False add your content here
-
-    {% endif %}
     # if "{{ cookiecutter.use_pre_commits }}" == "true":
     #     setup_pre_commits()
     # if "{{ cookiecutter.create_venv }}" == "true":  # TODO before git init
