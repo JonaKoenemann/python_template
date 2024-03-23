@@ -146,10 +146,8 @@ if __name__ == "__main__":
     init_repo()
     if "{{ cookiecutter.create_venv }}":
         create_venv()
-    # if "{{ cookiecutter.use_pre_commits }}" == "true":
-    #     setup_pre_commits()
-    # if "{{ cookiecutter.create_venv }}" == "true":  # TODO before git init
-    #     create_venv()
+    if "{{ cookiecutter.use_pre_commits }}":
+        setup_pre_commits()
     # create .env file
     file = open(".env", "w")
     file.close()
