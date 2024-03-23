@@ -19,3 +19,8 @@ features:
     enabled: "{{ cookiecutter.use_sphinx_documentation|lower }}"
     resources:
       - "docs"
+
+  - name: pre_commits
+    enabled: "{{ cookiecutter.use_pre_commits|lower }}"
+    resources:
+      - ".pre-commit-config.yaml" 
