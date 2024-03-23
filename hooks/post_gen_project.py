@@ -112,13 +112,13 @@ def update_readme():
     with open(os.path.join(PROJECT_DIRECTORY, "README.md"), "w") as file:
         for line in lines:
             if (
-                "{{ cookiecutter.use_pre_commits }}" == "false"
+                not "{{ cookiecutter.use_pre_commits }}"
                 and "Configuration file for the pre-commits" in line
-                or "{{ cookiecutter.use_sphinx_documentation }}" == "false"
+                or not "{{ cookiecutter.use_sphinx_documentation }}"
                 and "A default Sphinx project; see sphinx-doc.org for details" in line
-                or "{{ cookiecutter.include_gui_structure }}" == "false"
+                or not "{{ cookiecutter.include_gui_structure }}"
                 and any(indicator in line for indicator in gui_indicators)
-                or "{{ cookiecutter.include_data_science_structure }}" == "false"
+                or not "{{ cookiecutter.include_data_science_structure }}"
                 and any(indicator in line for indicator in data_science_indicators)
             ):
                 pass  # skip line
@@ -141,7 +141,7 @@ def create_venv() -> None:
 
 
 if __name__ == "__main__":
-    # update_readme() # TODO: not working
+    update_readme()
     delete_resources_for_disabled_features()
     init_repo()
     if "{{ cookiecutter.create_venv }}":
