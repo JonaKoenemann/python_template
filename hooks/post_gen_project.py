@@ -116,6 +116,9 @@ def update_readme():
                 and "Configuration file for the pre-commits" in line
                 or not "{{ cookiecutter.use_sphinx_documentation }}" == "y"
                 and "A default Sphinx project; see sphinx-doc.org for details" in line
+                or not "{{ cookiecutter.create_venv }}" == "y"
+                and "Folder containing all needed files for teh virtual environment"
+                in line
                 or not "{{ cookiecutter.include_gui_structure }}" == "y"
                 and any(indicator in line for indicator in gui_indicators)
                 or not "{{ cookiecutter.include_data_science_structure }}" == "y"
