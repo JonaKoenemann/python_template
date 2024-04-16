@@ -12,7 +12,7 @@ MANIFEST = os.path.join(PROJECT_DIRECTORY, "manifest.yaml")
 
 
 def delete_resources_for_disabled_features() -> None:
-    """Deletes the ressources of the disabled features."""
+    """Deletes the resources of the disabled features."""
     with open(MANIFEST) as manifest_file:
         manifest = yaml.load(manifest_file, yaml.SafeLoader)
         for feature in manifest["features"]:
@@ -25,7 +25,7 @@ def delete_resources_for_disabled_features() -> None:
 
 
 def delete_resource(resource_name: str) -> None:
-    """Deletes teh given file or directory.
+    """Deletes the given file or directory.
 
     Args:
         resource_name (str): file or directory to remove
