@@ -6,21 +6,41 @@ features:
       - "src\\features"
       - "src\\models"
       - "src\\visualization"
+    doc_references:
+      - "Trained and serialized models, model predictions, or model summaries"
+      - "Scripts to turn raw data into features for modeling"
+      - "Scripts to train models and then use trained models to make"
+      - "Scripts to create visualizations"
 
   - name: gui_structure
     enabled: "{{ cookiecutter.include_gui_structure|lower }}"
     resources:
-      - "assets" 
+      - "assets"
       - "src\\pages"
       - "src\\style"
       - "src\\widgets"
-      
+    doc_references:
+      - "Folder for storing assets like images"
+      - "Contains your application views"
+      - "Contains all style related code"
+      - "Contains custom widgets"
+
   - name: sphinx_documentation
     enabled: "{{ cookiecutter.use_sphinx_documentation|lower }}"
     resources:
       - "docs"
+    doc_references:
+     - A default Sphinx project; see sphinx-doc.org for details
 
   - name: pre_commits
     enabled: "{{ cookiecutter.use_pre_commits|lower }}"
     resources:
-      - ".pre-commit-config.yaml" 
+      - ".pre-commit-config.yaml"
+    doc_references:
+      - Configuration file for the pre-commits
+
+  - name: venv
+    enabled: "{{ cookiecutter.create_venv|lower }}"
+    resources:
+    doc_references:
+      - Folder containing all needed files for teh virtual environment

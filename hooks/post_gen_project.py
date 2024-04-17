@@ -3,8 +3,9 @@
 
 import os
 import shutil
-import sys
 import subprocess
+import sys
+
 import yaml
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -60,8 +61,10 @@ def init_repo():
             ["git", "push", "-u", "origin", "{{ cookiecutter.branch_name }}"],
             check=True,
         )
-    except:
-        raise RuntimeError("Could not init and push repo.")
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError(f"An error occurred while executing Git command: {e}") from e
+    except Exception as e:
+        raise RuntimeError(f"An unexpected error occurred: {e}") from e
 
 
 def setup_pre_commits() -> None:
@@ -77,53 +80,38 @@ def setup_pre_commits() -> None:
         subprocess.check_call(
             [sys.executable, "-m", "pip", "--version"]
         )  # check if pip is installed
-    except:
+    except subprocess.CalledProcessError:
         raise RuntimeError("Pip is not installed.")
     try:
         subprocess.run(
             [sys.executable, "-m", "pip", "install", "pre-commit"], check=True
         )
         subprocess.run(["pre-commit", "install", "--install-hooks"], check=True)
-    except:
+    except subprocess.CalledProcessError:
         raise RuntimeError("Could not install pre-commit hooks.")
 
 
 def update_readme():
     """Updates the README.md according to the selected features."""
     lines = []
-    gui_indicators = [
-        "Folder for storing assets like images",
-        "Contains your application views",
-        "Contains all style related code",
-        "Contains custom widgets",
-    ]
-    data_science_indicators = [
-        "Trained and serialized models, model predictions, or model summaries",
-        "Scripts to turn raw data into features for modeling",
-        "Scripts to train models and then use trained models to make",
-        "Scripts to create visualizations",
-    ]
+    doc_references = []
 
     # read file
     with open(os.path.join(PROJECT_DIRECTORY, "README.md"), "r") as file:
         lines = file.readlines()
 
+    # get all references that have to be removed
+    with open(MANIFEST) as manifest_file:
+        manifest = yaml.load(manifest_file, yaml.SafeLoader)
+        for feature in manifest["features"]:
+            if feature["enabled"] == "false":
+                for reference in feature["doc_references"]:
+                    doc_references.append(reference)
+
     # Write file
     with open(os.path.join(PROJECT_DIRECTORY, "README.md"), "w") as file:
         for line in lines:
-            if (
-                not {{cookiecutter.use_pre_commits}}
-                and "Configuration file for the pre-commits" in line
-                or not {{cookiecutter.use_sphinx_documentation}}
-                and "A default Sphinx project; see sphinx-doc.org for details" in line
-                or not {{cookiecutter.create_venv}}
-                and "Folder containing all needed files for teh virtual environment"
-                in line
-                or not {{cookiecutter.include_gui_structure}}
-                and any(indicator in line for indicator in gui_indicators)
-                or not {{cookiecutter.include_data_science_structure}}
-                and any(indicator in line for indicator in data_science_indicators)
-            ):
+            if any(reference in line for reference in doc_references):
                 pass  # skip line
             else:
                 file.write(line)
@@ -139,17 +127,21 @@ def create_venv() -> None:
         print("Start creating virtual environment.")
         subprocess.run(["python", "-m", "venv", "venv"], check=True)
         print("Successfully created virtual environment.")
-    except:
-        raise RuntimeError("Could not create virtual environment")
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError(
+            f"An error occurred while creating virtual environment: {e}"
+        ) from e
 
 
 if __name__ == "__main__":
     update_readme()
     delete_resources_for_disabled_features()
     init_repo()
-    if {{cookiecutter.create_venv}}:
+    # ruff: ignore=F821
+    if {{cookiecutter.create_venv}}:  # noqa: F821
         create_venv()
-    if {{cookiecutter.use_pre_commits}}:
+    # ruff: ignore=F821
+    if {{cookiecutter.use_pre_commits}}:  # noqa: F821
         setup_pre_commits()
     # create .env file
     file = open(".env", "w")
