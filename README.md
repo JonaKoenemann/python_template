@@ -1,9 +1,11 @@
-## Python template 
+## Python template
 
-This repository contains a cookiecutter python project template which is based on the 
- [cookiecutter Data Science template](https://drivendata.github.io/cookiecutter-data-science/).  
+v1.0.0
 
-You can either use a data science structure or a structure for a project with a gui. You can also combine the two.  
+This repository contains a cookiecutter python project template which is based on the
+ [cookiecutter Data Science template](https://drivendata.github.io/cookiecutter-data-science/).
+
+You can either use a data science structure or a structure for a project with a gui. You can also combine the two.
 In addition to a fixed folder structure, the template provides the following optional features:
 - Python packaging and dependency management with poetry
 - pre-commit hooks
@@ -21,7 +23,7 @@ In addition to a fixed folder structure, the template provides the following opt
 
 ## How to use the template
 
-To use the template, simply call the following command in your desired folder, e.g. GitHub:  
+To use the template, simply call the following command in your desired folder, e.g. GitHub:
 
 ```sh
 cookiecutter https://github.com/JonaKoenemann/python_template.git
@@ -32,8 +34,8 @@ Then some questions are asked that are needed for the template. After the answer
 
 The project structure when using all features is as follows:
 
-    ├── assets             <- Folder for storing assets like images 
-    ├── data               <- Folder for storing your data 
+    ├── assets             <- Folder for storing assets like images
+    ├── data               <- Folder for storing your data
     ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     ├── notebooks          <- Jupyter notebooks
@@ -44,11 +46,11 @@ The project structure when using all features is as follows:
     │   ├── models         <- Scripts to train models and then use trained models to make
     │   │                     predictions
     │   ├── pages          <- Contains your application views
-    │   ├── style          <- Contains all style related code 
-    │   ├── utils          <- This folder is for storing all utility functions, such as auth, 
+    │   ├── style          <- Contains all style related code
+    │   ├── utils          <- This folder is for storing all utility functions, such as auth,
     |   |                     theme, handleApiError, etc.
-    │   ├── visualization  <- Scripts to create visualizations 
-    |   └── widgets        <- Contains custom widgets 
+    │   ├── visualization  <- Scripts to create visualizations
+    |   └── widgets        <- Contains custom widgets
     │
     ├── .env                        <- File for storing passwords
     ├── .gitignore                  <- Specifies intentionally untracked files to ignore
@@ -62,7 +64,7 @@ The project structure when using all features is as follows:
 
 In addition to a good project structure, it is recommended to create proper git commit messages. To ensure that these are consistent, the following approach is suggested:
 
-Each commit message consists of a short descriptive text of the change and two tags. the first tag describes where a change was made and the second tag describes what the commit is about.  
+Each commit message consists of a short descriptive text of the change and two tags. the first tag describes where a change was made and the second tag describes what the commit is about.
 
 The following tags are proposed:
 
